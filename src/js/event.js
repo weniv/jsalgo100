@@ -70,17 +70,15 @@ const downloadFile = async ({ data, fileName, fileType }) => {
 };
 
 const fetchQuestionInfo = async () => {
-    const res = await fetch(
-        `${window.location.origin}/src/py/testcase.py`
-    );
+    const res = await fetch(`${window.location.origin}/src/py/question_info.py`);
     if (res.status == 200) {
         const responseValue = await res.text();
         return responseValue;
     } else {
-        const responseValue = ''
+        const responseValue = "";
         return responseValue;
     }
-}
+};
 
 $btnsDownload.addEventListener("click", (e) => {
     let totalData = ''
@@ -114,7 +112,7 @@ $btnsDownload.addEventListener("click", (e) => {
 })
 
 
-window.onload = function(){
+window.onload = function () {
     const options = $languageSelector.querySelectorAll('option');
     lang = 'javascript';
     options[0].selected = true;
