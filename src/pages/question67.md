@@ -20,9 +20,9 @@
 
 | 입력 (문자열, 서브스트링) | 출력 (서브스트링 시작 위치의 인덱스 리스트) |
 | ------------------------ | ---------------------------------------- |
-| ("this is a test string", "is") | [2, 5] |
-| ("repeat repeat repeat", "peat") | [3, 10, 17] |
-| ("find the substring in the string", "the") | [5, 24] |
+| ["this is a test string", "is"] | [2, 5] |
+| ["repeat repeat repeat", "peat"] | [3, 10, 17] |
+| ["find the substring in the string", "the"] | [5, 24] |
 
 ---
 

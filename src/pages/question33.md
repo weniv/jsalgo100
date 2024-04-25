@@ -22,10 +22,10 @@
 
 |   입력 (문자열)        | 출력 (유효 여부) |
 | --------------------- | ---------------- |
-| `user@example.com`    | True             |
-| `user.name@domain.co` | True             |
-| `user@domain`         | False            |
-| `@example.com`        | False            |
+| `user@example.com`    | true             |
+| `user.name@domain.co` | true             |
+| `user@domain`         | false            |
+| `@example.com`        | false            |
 
 ---
 

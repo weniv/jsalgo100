@@ -19,9 +19,9 @@
 
 | 입력 (문자열, N) | 출력 (N-gram 리스트) |
 | ---------------- | ------------------- |
-| ("hello", 2) | ['he', 'el', 'll', 'lo'] |
-| ("world", 3) | ['wor', 'orl', 'rld'] |
-| ("python", 5) | ['pytho', 'ython'] |
+| ["hello", 2] | ['he', 'el', 'll', 'lo'] |
+| ["world", 3] | ['wor', 'orl', 'rld'] |
+| ["python", 5] | ['pytho', 'ython'] |
 
 ---
 

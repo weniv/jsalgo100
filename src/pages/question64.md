@@ -20,9 +20,9 @@
 
 | 입력 (문자열, 패턴) | 출력 (패턴 출현 횟수) |
 | ------------------- | -------------------- |
-| ("hellohellohello", "hello") | 3 |
-| ("ababab", "ab") | 3 |
-| ("abcde", "f") | 0 |
+| ["hellohellohello", "hello"] | 3 |
+| ["ababab", "ab"] | 3 |
+| ["abcde", "f"] | 0 |
 
 ---
 

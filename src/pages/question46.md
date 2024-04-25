@@ -25,11 +25,11 @@
 
 |   크기  |               입력 (처리 명령)                 | 출력 (각 명령의 결과)     |
 | ------ | -------------------------------------------- | ------------------------ |
-| 3      | ["insert 1", "insert 2", "insert 3", "insert 4", "search 3", "delete", "search 3"] | [None, None, None, None, True, None, True] |
-| 2      | ["insert A", "insert B", "insert C", "search B"] | [None, None, None, True] |
-| 4      | ["insert X", "delete", "search X"]           | [None, None, False]      |
+| 3      | ["insert 1", "insert 2", "insert 3", "insert 4", "search 3", "delete", "search 3"] | [null, null, null, null, true, null, true] |
+| 2      | ["insert A", "insert B", "insert C", "search B"] | [null, null, null, true] |
+| 4      | ["insert X", "delete", "search X"]           | [null, null, false]      |
 
 ---
 
 ## 입출력 설명
-각 명령을 순서대로 수행한 결과를 반환합니다. "insert"와 "delete" 명령은 결과가 없으므로 None을, "search" 명령은 결과를 True 또는 False로 반환합니다.
+각 명령을 순서대로 수행한 결과를 반환합니다. "insert"와 "delete" 명령은 결과가 없으므로 None을, "search" 명령은 결과를 true 또는 false로 반환합니다.
