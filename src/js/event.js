@@ -2,7 +2,7 @@ const $btnQue = document.querySelectorAll('.btn-que');
 const $btnRun = document.querySelector("#btn-run");
 const $resultInfo = document.querySelector("#result_info");
 const $btnsDownload = document.querySelector(".btn-download");
-const $languageSelector = document.querySelector(".lang-selector");
+// const $languageSelector = document.querySelector(".lang-selector");
 const OLD_CONSOLE_LOG = console.log;
 let debug = true;
 let lang;
@@ -27,6 +27,7 @@ function loadCode() {
     const localStorageValue = window.localStorage.getItem(PAGE_NAME);
     if (!!localStorageValue) {
         editor.setValue(localStorageValue);
+        document.querySelector('#codeeditor').textContent = localStorageValue;
         $resultInfo.classList.remove("result-info-none");
     } else {
         editor.setValue(`function solution(data){
@@ -112,8 +113,8 @@ $btnsDownload.addEventListener("click", (e) => {
 })
 
 
-window.onload = function () {
-    const options = $languageSelector.querySelectorAll('option');
-    lang = 'javascript';
-    options[0].selected = true;
-}
+// window.onload = function () {
+//     const options = $languageSelector.querySelectorAll('option');
+//     lang = 'javascript';
+//     options[0].selected = true;
+// }

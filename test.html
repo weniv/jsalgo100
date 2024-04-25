@@ -29,7 +29,7 @@
     <meta name="twitter:image" property="og:image" content="https://jsalgo.co.kr/src/img/meta.webp">
     <meta name="twitter:url" property="og:url" content="https://jsalgo.co.kr">
 
-    <title>JSalgo20</title>
+    <title>JSalgo100테스트페이지</title>
     
     <!-- Google tag (gtag.js) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-J4R0WC3TYQ"></script>
@@ -45,6 +45,9 @@
     <script src="./src/env.js" defer></script>
 
     <!-- JavaScript -->
+    <script>
+        history.pushState(null,null,"./")
+    </script>
     <script src="./src/js/editor.js" defer></script>
     <script src="./src/js/parser.js" defer></script>
     <script src="./src/js/event.js" defer></script>
@@ -322,6 +325,7 @@
         <p>Copyright 2023. <strong>WENIV</strong> All rights reserved.</p>
     </footer>
 </body>
+<script src="./src/py/answer_sample.js"></script>
 <script>
 
     const renderTestcase = async () => {
@@ -332,10 +336,11 @@
             document.querySelector(`#testcase${i + 1}`).value = testcase[i]
         }
     }
-
     const checkAnswer = (result, answer)=> {
+        console.log("????")
         if(typeof result === 'object'){
             if(Array.isArray(result)&&result.every((v, i) => v === answer[i])){
+                console.log("!?")
                 return true
             }else{
                 // return result.toString() === answer.toString()
@@ -346,12 +351,12 @@
             return result == answer
         }
     }
-
     const result = () =>{
         const code = editor.getValue()
         const PAGE_NAME = document.querySelector('.active').id.slice(1)
         const answer = testcase_and_result[PAGE_NAME]['result']
         const testCase = testcase_and_result[PAGE_NAME]['testcase']
+        console.log(testCase,PAGE_NAME)
         try {
             let result = ['undefined', 'undefined', 'undefined']
             if (typeof testCase[0] === 'object') {
@@ -367,6 +372,7 @@
                     result[2] = eval(code2)
                 }
             }else {
+                console.log(testCase)
                 const code0 = code + `\nsolution(${(typeof testCase[0])=="number"?testCase[0]:"'"+testCase[0]+"'"})`
                 const code1 = code + `\nsolution(${(typeof testCase[1])=="number"?testCase[1]:"'"+testCase[1]+"'"})`
                 const code2 = code + `\nsolution(${(typeof testCase[2])=="number"?testCase[2]:"'"+testCase[2]+"'"})`
@@ -402,14 +408,29 @@
             throw e
         }
     }
-
     const button_run = document.getElementById("btn-run")
     button_run.addEventListener("click", result)
 
     window.addEventListener("markdownParsed",async ()=>{
         renderTestcase()
     })
-    
+    let testResult = {}
+    testcase_and_result.forEach(element => {
+        testResult[element["que_number"]] = []
+        element['testcase'].forEach((input, index)=>{
+            try {
+                if (checkAnswer(test(answerSamples[element["que_number"]],element['testcase'][index]), element['result'][index])) {
+                    testResult[element["que_number"]].push(true)
+                } else {
+                    testResult[element["que_number"]].push([false, input, element['result'][index],test(answerSamples[element["que_number"]],element['testcase'][index])])
+                }
+            } catch (error) {
+                console.error(error, element["que_number"])
+                testResult[element["que_number"]].push({error: error, input:input})
+            }
+        })
+    });
+    console.log(testResult)
 </script>
 
 </html>
