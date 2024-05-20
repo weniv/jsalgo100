@@ -190,14 +190,25 @@ $inputUsername.value = localStorage.getItem("username") || "";
 
 const $downloadBtn = document.querySelector(".certif-download-btn");
 $downloadBtn.addEventListener("click", () => {
+  //disabled 속성을 제거하여 클릭하는 경우에 인증서를 다운로드 할 수 없도록 합니다.
+  const totalProblem = 100;
+  let score = 0;
+  for (let i = 1; i <= totalProblem; i++) {
+    if (localStorage.getItem(`${i}_check`) === "통과") {
+      score++;
+    }
+  }
+  if (score < totalProblem) {
+    alert("모든 문제를 풀어주세요.");
+    return;
+  }
   createCertifImg(localStorage.getItem("username"));
 });
 checkCertif();
 
 function createCertifImg() {
-  console.log("createCertifImg");
   const img = new Image();
-  img.src = `src/img/certif-background.jpg`; // 이미지 변경 필요
+  img.src = `src/img/certif-jsalgo.png`;
   img.onload = () => {
     const canvas = document.createElement("canvas");
     canvas.width = img.width;
