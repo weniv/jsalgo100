@@ -1448,6 +1448,60 @@ for (let i = 0; i < s.length; i++) {
 return result;
 }
 
+// 101
+function solution101(nums) {
+  return new Set(nums).size;
+}
+
+// 102
+function solution102(s) {
+  const count = {};
+  for (const c of s) {
+    count[c] = (count[c] || 0) + 1;
+  }
+  return Object.entries(count)
+    .sort((a, b) => b[1] - a[1] || a[0].localeCompare(b[0]))[0][0];
+}
+
+// 103
+function solution103(data) {
+  const [participant, completion] = data;
+  const count = {};
+  for (const p of participant) {
+    count[p] = (count[p] || 0) + 1;
+  }
+  for (const c of completion) {
+    count[c]--;
+  }
+  return Object.keys(count).find(k => count[k] > 0);
+}
+
+// 104
+function solution104(logs) {
+  const userNick = {};
+  const actions = [];
+
+  for (const log of logs) {
+    const parts = log.split(' ');
+    const cmd = parts[0];
+    const uid = parts[1];
+
+    if (cmd === "In") {
+      userNick[uid] = parts[2];
+      actions.push(uid);
+    } else if (cmd === "Update") {
+      userNick[uid] = parts[2];
+    }
+  }
+
+  const result = [];
+  for (const uid of actions) {
+    result.push(`${userNick[uid]}님이 착륙하셨어요.`);
+  }
+
+  return result;
+}
+
 // 정답 코드 오브젝트
 const answerSamples = {
   1: solution1,
@@ -1548,7 +1602,11 @@ const answerSamples = {
   96: solution96,
   97: solution97,
   99: solution99,
-  100: solution100
+  100: solution100,
+  101: solution101,
+  102: solution102,
+  103: solution103,
+  104: solution104
 };
 
 function test(func, input) {

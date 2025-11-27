@@ -138,7 +138,7 @@ window.addEventListener("click", (e) => {
 });
 
 function checkCertif() {
-  const totalProblem = 100;
+  const totalProblem = 104;
   // 점수 체크
   let score = 0;
   for (let i = 1; i <= totalProblem; i++) {
@@ -191,7 +191,7 @@ $inputUsername.value = localStorage.getItem("username") || "";
 const $downloadBtn = document.querySelector(".certif-download-btn");
 $downloadBtn.addEventListener("click", () => {
   //disabled 속성을 제거하여 클릭하는 경우에 인증서를 다운로드 할 수 없도록 합니다.
-  const totalProblem = 100;
+  const totalProblem = 104;
   let score = 0;
   for (let i = 1; i <= totalProblem; i++) {
     if (localStorage.getItem(`${i}_check`) === "통과") {
